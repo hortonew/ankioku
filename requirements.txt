@@ -1,0 +1,6 @@
+pytest
+pytest-sugar
+pytest-cov
+flake8
+mypy
+pre-commit
