@@ -6,3 +6,5 @@ mypy
 pre-commit
 pytest-icdiff
 # pytest-stress --delay 2 --seconds 2
+Kivy==2.0.0
+kivymd==0.104.2
