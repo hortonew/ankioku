@@ -1,16 +1,12 @@
-from typing import Set
-# get
-# get_image -> s3
-# save
-# save_image -> s3
-# ask
-# reveal
-# share
-# tag
-# attr
-# # time_to_forget
-# # relates_to
-# rate (save metric)
+from typing import Dict, Set
+from dataclasses import dataclass
+from datetime import date  # , timedelta, datetime
+
+
+@dataclass
+class AccessHistory:
+    last_acceseed: date
+    correctness_history: Dict[date, bool]
 
 
 class Card:
@@ -18,6 +14,8 @@ class Card:
         self.id = "test"
         self._tags: Set[str] = set()
         self._question: str = ""
+        self._answer: str = ""
+        self.access_history: AccessHistory = {}
 
     def __repr__(self) -> str:
         return self._question
@@ -31,6 +29,16 @@ class Card:
         if len(question) > 140:
             raise ValueError('Length of question > maximum.')
         self._question = question
+
+    @property
+    def answer(self) -> str:
+        return self._answer
+
+    @answer.setter
+    def answer(self, answer: str):
+        if len(answer) > 140:
+            raise ValueError('Length of answer > maximum.')
+        self._answer = answer
 
     @property
     def tags(self) -> Set[str]:
