@@ -33,7 +33,7 @@ class Tab(MDFloatLayout, MDTabsBase):  # type: ignore
     '''Class implementing content for a tab.'''
 
 
-class Example(MDApp):  # type: ignore
+class Ankioku(MDApp):  # type: ignore
     def build(self):  # type: ignore
         return Builder.load_string(KV)
 
@@ -56,4 +56,4 @@ class Example(MDApp):  # type: ignore
             instance_tab.ids.label.text = tab_text
 
 
-Example().run()
+Ankioku().run()
